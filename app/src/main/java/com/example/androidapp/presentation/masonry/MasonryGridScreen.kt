@@ -1,4 +1,4 @@
-package com.example.androidapp.presentation
+package com.example.androidapp.presentation.masonry
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box

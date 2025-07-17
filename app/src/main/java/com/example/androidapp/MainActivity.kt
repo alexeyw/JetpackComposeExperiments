@@ -17,7 +17,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.androidapp.presentation.MasonryGridScreen
+import com.example.androidapp.presentation.masonry.MasonryGridScreen
 import com.example.androidapp.ui.theme.AndroidAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
