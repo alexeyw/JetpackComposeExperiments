@@ -12,12 +12,11 @@ import com.example.androidapp.domain.model.ImageData
 @Composable
 fun MasonryGrid(
     items: LazyPagingItems<ImageData>,
-    columns: Int,
     modifier: Modifier = Modifier,
     itemContent: @Composable (ImageData) -> Unit
 ) {
     LazyVerticalStaggeredGrid(
-        columns = StaggeredGridCells.Fixed(columns),
+        columns = StaggeredGridCells.Adaptive(minSize = 120.dp),
         contentPadding = PaddingValues(4.dp),
         modifier = modifier
     ) {

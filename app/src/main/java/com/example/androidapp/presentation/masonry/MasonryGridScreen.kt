@@ -15,19 +15,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import coil3.compose.AsyncImage
+import com.example.androidapp.R
 
 @Composable
 fun MasonryGridScreen(viewModel: MasonryViewModel = hiltViewModel()) {
     val items = viewModel.images.collectAsLazyPagingItems()
     val snackbarHostState = remember { SnackbarHostState() }
-    val configuration = LocalConfiguration.current
-    val columns = configuration.screenWidthDp / 200
 
     LaunchedEffect(items.loadState.append) {
         val state = items.loadState.append
@@ -45,7 +44,6 @@ fun MasonryGridScreen(viewModel: MasonryViewModel = hiltViewModel()) {
     Box(modifier = Modifier.fillMaxSize()) {
         MasonryGrid(
             items = items,
-            columns = columns,
             modifier = Modifier.fillMaxSize()
         ) { image ->
             AsyncImage(
@@ -54,7 +52,8 @@ fun MasonryGridScreen(viewModel: MasonryViewModel = hiltViewModel()) {
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .border(width = Dp.Hairline, color = Color.Black)
+                    .border(width = Dp.Hairline, color = Color.Black),
+                placeholder = painterResource(R.drawable.ic_placeholder)
             )
         }
 
